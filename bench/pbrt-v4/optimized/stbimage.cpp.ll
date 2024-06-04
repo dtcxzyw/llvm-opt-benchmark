@@ -8156,56 +8156,56 @@ if.then259.i.i:                                   ; preds = %if.then223.i.i
   %749 = load ptr, ptr %call.i.i155, align 8
   %750 = load i32, ptr %749, align 8
   %cmp268514.not.i.i = icmp eq i32 %750, 0
-  br i1 %cmp268514.not.i.i, label %for.inc482.i.i, label %for.body269.lr.ph.i.i
+  br i1 %cmp268514.not.i.i, label %for.inc482.i.i, label %for.body269.i.i.lver.check
 
-for.body269.lr.ph.i.i:                            ; preds = %if.then259.i.i
+for.body269.i.i.lver.check:                       ; preds = %if.then259.i.i
   %751 = load ptr, ptr %arrayidx436.i.i, align 8
-  br label %for.body269.i.i
+  br label %for.body269.i.i.lver.orig
 
-for.body269.i.i:                                  ; preds = %for.body269.i.i, %for.body269.lr.ph.i.i
-  %indvars.iv598.i.i = phi i64 [ 0, %for.body269.lr.ph.i.i ], [ %indvars.iv.next599.i.i, %for.body269.i.i ]
-  %out.2515.i.i = phi ptr [ %add.ptr.i.i185, %for.body269.lr.ph.i.i ], [ %add.ptr293.i.i, %for.body269.i.i ]
-  %arrayidx273.i.i = getelementptr inbounds i8, ptr %751, i64 %indvars.iv598.i.i
-  %752 = load i8, ptr %arrayidx273.i.i, align 1
-  %753 = load i8, ptr %out.2515.i.i, align 1
+for.body269.i.i.lver.orig:                        ; preds = %for.body269.i.i.lver.orig, %for.body269.i.i.lver.check
+  %indvars.iv598.i.i.lver.orig = phi i64 [ 0, %for.body269.i.i.lver.check ], [ %indvars.iv.next599.i.i.lver.orig, %for.body269.i.i.lver.orig ]
+  %out.2515.i.i.lver.orig = phi ptr [ %add.ptr.i.i185, %for.body269.i.i.lver.check ], [ %add.ptr293.i.i.lver.orig, %for.body269.i.i.lver.orig ]
+  %arrayidx273.i.i.lver.orig = getelementptr inbounds i8, ptr %751, i64 %indvars.iv598.i.i.lver.orig
+  %752 = load i8, ptr %arrayidx273.i.i.lver.orig, align 1
+  %753 = load i8, ptr %out.2515.i.i.lver.orig, align 1
   %754 = xor i8 %753, -1
-  %conv.i342.i.i = zext i8 %754 to i32
-  %conv1.i343.i.i = zext i8 %752 to i32
-  %mul.i344.i.i = mul nuw nsw i32 %conv.i342.i.i, %conv1.i343.i.i
-  %add.i345.i.i = add nuw nsw i32 %mul.i344.i.i, 128
-  %shr.i346.i.i = lshr i32 %add.i345.i.i, 8
-  %add2.i347.i.i = add nuw nsw i32 %shr.i346.i.i, %add.i345.i.i
-  %shr3.i348.i.i = lshr i32 %add2.i347.i.i, 8
-  %conv4.i349.i.i = trunc nuw i32 %shr3.i348.i.i to i8
-  store i8 %conv4.i349.i.i, ptr %out.2515.i.i, align 1
-  %arrayidx280.i.i = getelementptr inbounds i8, ptr %out.2515.i.i, i64 1
-  %755 = load i8, ptr %arrayidx280.i.i, align 1
+  %conv.i342.i.i.lver.orig = zext i8 %754 to i32
+  %conv1.i343.i.i.lver.orig = zext i8 %752 to i32
+  %mul.i344.i.i.lver.orig = mul nuw nsw i32 %conv.i342.i.i.lver.orig, %conv1.i343.i.i.lver.orig
+  %add.i345.i.i.lver.orig = add nuw nsw i32 %mul.i344.i.i.lver.orig, 128
+  %shr.i346.i.i.lver.orig = lshr i32 %add.i345.i.i.lver.orig, 8
+  %add2.i347.i.i.lver.orig = add nuw nsw i32 %shr.i346.i.i.lver.orig, %add.i345.i.i.lver.orig
+  %shr3.i348.i.i.lver.orig = lshr i32 %add2.i347.i.i.lver.orig, 8
+  %conv4.i349.i.i.lver.orig = trunc nuw i32 %shr3.i348.i.i.lver.orig to i8
+  store i8 %conv4.i349.i.i.lver.orig, ptr %out.2515.i.i.lver.orig, align 1
+  %arrayidx280.i.i.lver.orig = getelementptr inbounds i8, ptr %out.2515.i.i.lver.orig, i64 1
+  %755 = load i8, ptr %arrayidx280.i.i.lver.orig, align 1
   %756 = xor i8 %755, -1
-  %conv.i350.i.i = zext i8 %756 to i32
-  %mul.i352.i.i = mul nuw nsw i32 %conv.i350.i.i, %conv1.i343.i.i
-  %add.i353.i.i = add nuw nsw i32 %mul.i352.i.i, 128
-  %shr.i354.i.i = lshr i32 %add.i353.i.i, 8
-  %add2.i355.i.i = add nuw nsw i32 %shr.i354.i.i, %add.i353.i.i
-  %shr3.i356.i.i = lshr i32 %add2.i355.i.i, 8
-  %conv4.i357.i.i = trunc nuw i32 %shr3.i356.i.i to i8
-  store i8 %conv4.i357.i.i, ptr %arrayidx280.i.i, align 1
-  %arrayidx286.i.i = getelementptr inbounds i8, ptr %out.2515.i.i, i64 2
-  %757 = load i8, ptr %arrayidx286.i.i, align 1
+  %conv.i350.i.i.lver.orig = zext i8 %756 to i32
+  %mul.i352.i.i.lver.orig = mul nuw nsw i32 %conv.i350.i.i.lver.orig, %conv1.i343.i.i.lver.orig
+  %add.i353.i.i.lver.orig = add nuw nsw i32 %mul.i352.i.i.lver.orig, 128
+  %shr.i354.i.i.lver.orig = lshr i32 %add.i353.i.i.lver.orig, 8
+  %add2.i355.i.i.lver.orig = add nuw nsw i32 %shr.i354.i.i.lver.orig, %add.i353.i.i.lver.orig
+  %shr3.i356.i.i.lver.orig = lshr i32 %add2.i355.i.i.lver.orig, 8
+  %conv4.i357.i.i.lver.orig = trunc nuw i32 %shr3.i356.i.i.lver.orig to i8
+  store i8 %conv4.i357.i.i.lver.orig, ptr %arrayidx280.i.i.lver.orig, align 1
+  %arrayidx286.i.i.lver.orig = getelementptr inbounds i8, ptr %out.2515.i.i.lver.orig, i64 2
+  %757 = load i8, ptr %arrayidx286.i.i.lver.orig, align 1
   %758 = xor i8 %757, -1
-  %conv.i358.i.i = zext i8 %758 to i32
-  %mul.i360.i.i = mul nuw nsw i32 %conv.i358.i.i, %conv1.i343.i.i
-  %add.i361.i.i = add nuw nsw i32 %mul.i360.i.i, 128
-  %shr.i362.i.i = lshr i32 %add.i361.i.i, 8
-  %add2.i363.i.i = add nuw nsw i32 %shr.i362.i.i, %add.i361.i.i
-  %shr3.i364.i.i = lshr i32 %add2.i363.i.i, 8
-  %conv4.i365.i.i = trunc nuw i32 %shr3.i364.i.i to i8
-  store i8 %conv4.i365.i.i, ptr %arrayidx286.i.i, align 1
-  %add.ptr293.i.i = getelementptr inbounds i8, ptr %out.2515.i.i, i64 %idx.ext442.i.i
-  %indvars.iv.next599.i.i = add nuw nsw i64 %indvars.iv598.i.i, 1
+  %conv.i358.i.i.lver.orig = zext i8 %758 to i32
+  %mul.i360.i.i.lver.orig = mul nuw nsw i32 %conv.i358.i.i.lver.orig, %conv1.i343.i.i.lver.orig
+  %add.i361.i.i.lver.orig = add nuw nsw i32 %mul.i360.i.i.lver.orig, 128
+  %shr.i362.i.i.lver.orig = lshr i32 %add.i361.i.i.lver.orig, 8
+  %add2.i363.i.i.lver.orig = add nuw nsw i32 %shr.i362.i.i.lver.orig, %add.i361.i.i.lver.orig
+  %shr3.i364.i.i.lver.orig = lshr i32 %add2.i363.i.i.lver.orig, 8
+  %conv4.i365.i.i.lver.orig = trunc nuw i32 %shr3.i364.i.i.lver.orig to i8
+  store i8 %conv4.i365.i.i.lver.orig, ptr %arrayidx286.i.i.lver.orig, align 1
+  %add.ptr293.i.i.lver.orig = getelementptr inbounds i8, ptr %out.2515.i.i.lver.orig, i64 %idx.ext442.i.i
+  %indvars.iv.next599.i.i.lver.orig = add nuw nsw i64 %indvars.iv598.i.i.lver.orig, 1
   %759 = load i32, ptr %749, align 8
   %760 = zext i32 %759 to i64
-  %cmp268.i.i = icmp ult i64 %indvars.iv.next599.i.i, %760
-  br i1 %cmp268.i.i, label %for.body269.i.i, label %for.inc482.i.i, !llvm.loop !69
+  %cmp268.i.i.lver.orig = icmp ult i64 %indvars.iv.next599.i.i.lver.orig, %760
+  br i1 %cmp268.i.i.lver.orig, label %for.body269.i.i.lver.orig, label %for.inc482.i.i, !llvm.loop !69
 
 for.body310.i.i:                                  ; preds = %for.cond306.preheader.i.i, %for.body310.i.i
   %indvars.iv607.i.i = phi i64 [ %indvars.iv.next608.i.i, %for.body310.i.i ], [ 0, %for.cond306.preheader.i.i ]
@@ -8461,8 +8461,8 @@ for.inc482.sink.split.i.i:                        ; preds = %if.then223.i.i, %if
   %.pre93.i = load ptr, ptr %call.i.i155, align 8
   br label %for.inc482.i.i
 
-for.inc482.i.i:                                   ; preds = %for.body429.i.i, %for.body388.i.i, %for.body469.i.i, %for.body456.i.i, %for.body355.i.i, %for.body333.i.i, %for.body269.i.i, %for.body231.i.i, %for.body195.i.i, %for.body310.i.i, %for.inc482.sink.split.i.i, %for.cond452.preheader.i.i, %for.cond465.preheader.i.i, %for.cond425.preheader.i.i, %for.cond384.preheader.i.i, %for.cond329.preheader.i.i, %for.cond351.preheader.i.i, %if.then259.i.i, %for.cond227.preheader.i.i, %for.cond191.preheader.i.i, %for.cond306.preheader.i.i
-  %817 = phi ptr [ %.pre93.i, %for.inc482.sink.split.i.i ], [ %766, %for.cond452.preheader.i.i ], [ %766, %for.cond465.preheader.i.i ], [ %766, %for.cond425.preheader.i.i ], [ %766, %for.cond384.preheader.i.i ], [ %766, %for.cond329.preheader.i.i ], [ %766, %for.cond351.preheader.i.i ], [ %749, %if.then259.i.i ], [ %723, %for.cond227.preheader.i.i ], [ %723, %for.cond191.preheader.i.i ], [ %723, %for.cond306.preheader.i.i ], [ %723, %for.body310.i.i ], [ %723, %for.body195.i.i ], [ %723, %for.body231.i.i ], [ %749, %for.body269.i.i ], [ %766, %for.body333.i.i ], [ %766, %for.body355.i.i ], [ %766, %for.body456.i.i ], [ %766, %for.body469.i.i ], [ %766, %for.body388.i.i ], [ %766, %for.body429.i.i ]
+for.inc482.i.i:                                   ; preds = %for.body429.i.i, %for.body388.i.i, %for.body469.i.i, %for.body456.i.i, %for.body355.i.i, %for.body333.i.i, %for.body269.i.i.lver.orig, %for.body231.i.i, %for.body195.i.i, %for.body310.i.i, %for.inc482.sink.split.i.i, %for.cond452.preheader.i.i, %for.cond465.preheader.i.i, %for.cond425.preheader.i.i, %for.cond384.preheader.i.i, %for.cond329.preheader.i.i, %for.cond351.preheader.i.i, %if.then259.i.i, %for.cond227.preheader.i.i, %for.cond191.preheader.i.i, %for.cond306.preheader.i.i
+  %817 = phi ptr [ %.pre93.i, %for.inc482.sink.split.i.i ], [ %766, %for.cond452.preheader.i.i ], [ %766, %for.cond465.preheader.i.i ], [ %766, %for.cond425.preheader.i.i ], [ %766, %for.cond384.preheader.i.i ], [ %766, %for.cond329.preheader.i.i ], [ %766, %for.cond351.preheader.i.i ], [ %749, %if.then259.i.i ], [ %723, %for.cond227.preheader.i.i ], [ %723, %for.cond191.preheader.i.i ], [ %723, %for.cond306.preheader.i.i ], [ %723, %for.body310.i.i ], [ %723, %for.body195.i.i ], [ %723, %for.body231.i.i ], [ %749, %for.body269.i.i.lver.orig ], [ %766, %for.body333.i.i ], [ %766, %for.body355.i.i ], [ %766, %for.body456.i.i ], [ %766, %for.body469.i.i ], [ %766, %for.body388.i.i ], [ %766, %for.body429.i.i ]
   %inc483.i.i = add nuw i32 %j.0528.i.i, 1
   %img_y114.i.i = getelementptr inbounds i8, ptr %817, i64 4
   %818 = load i32, ptr %img_y114.i.i, align 4

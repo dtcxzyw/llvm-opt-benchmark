@@ -70550,18 +70550,18 @@ _ZL18stbi__cleanup_jpegP10stbi__jpeg.exit322.i:   ; preds = %1271, %_ZL17stbi__m
   %1387 = load ptr, ptr %calloc, align 8
   %1388 = load i32, ptr %1387, align 8
   %.not440.i = icmp eq i32 %1388, 0
-  br i1 %.not440.i, label %.loopexit.i, label %.lr.ph421.i
+  br i1 %.not440.i, label %.loopexit.i, label %.lver.check
 
-.lr.ph421.i:                                      ; preds = %1382
+.lver.check:                                      ; preds = %1382
   %1389 = load ptr, ptr %1250, align 8
   br label %1390
 
-1390:                                             ; preds = %1390, %.lr.ph421.i
-  %indvars.iv518.i = phi i64 [ 0, %.lr.ph421.i ], [ %indvars.iv.next519.i, %1390 ]
-  %.2262418.i = phi ptr [ %1313, %.lr.ph421.i ], [ %1423, %1390 ]
-  %1391 = getelementptr inbounds i8, ptr %1389, i64 %indvars.iv518.i
+1390:                                             ; preds = %1390, %.lver.check
+  %indvars.iv518.i.lver.orig = phi i64 [ 0, %.lver.check ], [ %indvars.iv.next519.i.lver.orig, %1390 ]
+  %.2262418.i.lver.orig = phi ptr [ %1313, %.lver.check ], [ %1423, %1390 ]
+  %1391 = getelementptr inbounds i8, ptr %1389, i64 %indvars.iv518.i.lver.orig
   %1392 = load i8, ptr %1391, align 1
-  %1393 = load i8, ptr %.2262418.i, align 1
+  %1393 = load i8, ptr %.2262418.i.lver.orig, align 1
   %1394 = xor i8 %1393, -1
   %1395 = zext i8 %1394 to i32
   %1396 = zext i8 %1392 to i32
@@ -70571,8 +70571,8 @@ _ZL18stbi__cleanup_jpegP10stbi__jpeg.exit322.i:   ; preds = %1271, %_ZL17stbi__m
   %1400 = add nuw nsw i32 %1399, %1398
   %1401 = lshr i32 %1400, 8
   %1402 = trunc nuw i32 %1401 to i8
-  store i8 %1402, ptr %.2262418.i, align 1
-  %1403 = getelementptr inbounds i8, ptr %.2262418.i, i64 1
+  store i8 %1402, ptr %.2262418.i.lver.orig, align 1
+  %1403 = getelementptr inbounds i8, ptr %.2262418.i.lver.orig, i64 1
   %1404 = load i8, ptr %1403, align 1
   %1405 = xor i8 %1404, -1
   %1406 = zext i8 %1405 to i32
@@ -70583,7 +70583,7 @@ _ZL18stbi__cleanup_jpegP10stbi__jpeg.exit322.i:   ; preds = %1271, %_ZL17stbi__m
   %1411 = lshr i32 %1410, 8
   %1412 = trunc nuw i32 %1411 to i8
   store i8 %1412, ptr %1403, align 1
-  %1413 = getelementptr inbounds i8, ptr %.2262418.i, i64 2
+  %1413 = getelementptr inbounds i8, ptr %.2262418.i.lver.orig, i64 2
   %1414 = load i8, ptr %1413, align 1
   %1415 = xor i8 %1414, -1
   %1416 = zext i8 %1415 to i32
@@ -70594,11 +70594,11 @@ _ZL18stbi__cleanup_jpegP10stbi__jpeg.exit322.i:   ; preds = %1271, %_ZL17stbi__m
   %1421 = lshr i32 %1420, 8
   %1422 = trunc nuw i32 %1421 to i8
   store i8 %1422, ptr %1413, align 1
-  %1423 = getelementptr inbounds i8, ptr %.2262418.i, i64 %1251
-  %indvars.iv.next519.i = add nuw nsw i64 %indvars.iv518.i, 1
+  %1423 = getelementptr inbounds i8, ptr %.2262418.i.lver.orig, i64 %1251
+  %indvars.iv.next519.i.lver.orig = add nuw nsw i64 %indvars.iv518.i.lver.orig, 1
   %1424 = load i32, ptr %1387, align 8
   %1425 = zext i32 %1424 to i64
-  %1426 = icmp ult i64 %indvars.iv.next519.i, %1425
+  %1426 = icmp ult i64 %indvars.iv.next519.i.lver.orig, %1425
   br i1 %1426, label %1390, label %.loopexit.i, !llvm.loop !1799
 
 .lr.ph430.i:                                      ; preds = %.preheader.i, %.lr.ph430.i

@@ -18157,56 +18157,56 @@ if.then277:                                       ; preds = %if.then238
   %75 = load ptr, ptr %z, align 8
   %76 = load i32, ptr %75, align 8
   %cmp286460.not = icmp eq i32 %76, 0
-  br i1 %cmp286460.not, label %for.inc514, label %for.body288.lr.ph
+  br i1 %cmp286460.not, label %for.inc514, label %for.body288.lver.check
 
-for.body288.lr.ph:                                ; preds = %if.then277
+for.body288.lver.check:                           ; preds = %if.then277
   %77 = load ptr, ptr %arrayidx465, align 8
-  br label %for.body288
+  br label %for.body288.lver.orig
 
-for.body288:                                      ; preds = %for.body288.lr.ph, %for.body288
-  %indvars.iv510 = phi i64 [ 0, %for.body288.lr.ph ], [ %indvars.iv.next511, %for.body288 ]
-  %out.2461 = phi ptr [ %add.ptr, %for.body288.lr.ph ], [ %add.ptr312, %for.body288 ]
-  %arrayidx292 = getelementptr inbounds i8, ptr %77, i64 %indvars.iv510
-  %78 = load i8, ptr %arrayidx292, align 1
-  %79 = load i8, ptr %out.2461, align 1
+for.body288.lver.orig:                            ; preds = %for.body288.lver.orig, %for.body288.lver.check
+  %indvars.iv510.lver.orig = phi i64 [ 0, %for.body288.lver.check ], [ %indvars.iv.next511.lver.orig, %for.body288.lver.orig ]
+  %out.2461.lver.orig = phi ptr [ %add.ptr, %for.body288.lver.check ], [ %add.ptr312.lver.orig, %for.body288.lver.orig ]
+  %arrayidx292.lver.orig = getelementptr inbounds i8, ptr %77, i64 %indvars.iv510.lver.orig
+  %78 = load i8, ptr %arrayidx292.lver.orig, align 1
+  %79 = load i8, ptr %out.2461.lver.orig, align 1
   %80 = xor i8 %79, -1
-  %conv.i324 = zext i8 %80 to i32
-  %conv1.i325 = zext i8 %78 to i32
-  %mul.i326 = mul nuw nsw i32 %conv.i324, %conv1.i325
-  %add.i327 = add nuw nsw i32 %mul.i326, 128
-  %shr.i328 = lshr i32 %add.i327, 8
-  %add2.i329 = add nuw nsw i32 %shr.i328, %add.i327
-  %shr3.i330 = lshr i32 %add2.i329, 8
-  %conv4.i331 = trunc nuw i32 %shr3.i330 to i8
-  store i8 %conv4.i331, ptr %out.2461, align 1
-  %arrayidx299 = getelementptr inbounds i8, ptr %out.2461, i64 1
-  %81 = load i8, ptr %arrayidx299, align 1
+  %conv.i324.lver.orig = zext i8 %80 to i32
+  %conv1.i325.lver.orig = zext i8 %78 to i32
+  %mul.i326.lver.orig = mul nuw nsw i32 %conv.i324.lver.orig, %conv1.i325.lver.orig
+  %add.i327.lver.orig = add nuw nsw i32 %mul.i326.lver.orig, 128
+  %shr.i328.lver.orig = lshr i32 %add.i327.lver.orig, 8
+  %add2.i329.lver.orig = add nuw nsw i32 %shr.i328.lver.orig, %add.i327.lver.orig
+  %shr3.i330.lver.orig = lshr i32 %add2.i329.lver.orig, 8
+  %conv4.i331.lver.orig = trunc nuw i32 %shr3.i330.lver.orig to i8
+  store i8 %conv4.i331.lver.orig, ptr %out.2461.lver.orig, align 1
+  %arrayidx299.lver.orig = getelementptr inbounds i8, ptr %out.2461.lver.orig, i64 1
+  %81 = load i8, ptr %arrayidx299.lver.orig, align 1
   %82 = xor i8 %81, -1
-  %conv.i332 = zext i8 %82 to i32
-  %mul.i334 = mul nuw nsw i32 %conv.i332, %conv1.i325
-  %add.i335 = add nuw nsw i32 %mul.i334, 128
-  %shr.i336 = lshr i32 %add.i335, 8
-  %add2.i337 = add nuw nsw i32 %shr.i336, %add.i335
-  %shr3.i338 = lshr i32 %add2.i337, 8
-  %conv4.i339 = trunc nuw i32 %shr3.i338 to i8
-  store i8 %conv4.i339, ptr %arrayidx299, align 1
-  %arrayidx305 = getelementptr inbounds i8, ptr %out.2461, i64 2
-  %83 = load i8, ptr %arrayidx305, align 1
+  %conv.i332.lver.orig = zext i8 %82 to i32
+  %mul.i334.lver.orig = mul nuw nsw i32 %conv.i332.lver.orig, %conv1.i325.lver.orig
+  %add.i335.lver.orig = add nuw nsw i32 %mul.i334.lver.orig, 128
+  %shr.i336.lver.orig = lshr i32 %add.i335.lver.orig, 8
+  %add2.i337.lver.orig = add nuw nsw i32 %shr.i336.lver.orig, %add.i335.lver.orig
+  %shr3.i338.lver.orig = lshr i32 %add2.i337.lver.orig, 8
+  %conv4.i339.lver.orig = trunc nuw i32 %shr3.i338.lver.orig to i8
+  store i8 %conv4.i339.lver.orig, ptr %arrayidx299.lver.orig, align 1
+  %arrayidx305.lver.orig = getelementptr inbounds i8, ptr %out.2461.lver.orig, i64 2
+  %83 = load i8, ptr %arrayidx305.lver.orig, align 1
   %84 = xor i8 %83, -1
-  %conv.i340 = zext i8 %84 to i32
-  %mul.i342 = mul nuw nsw i32 %conv.i340, %conv1.i325
-  %add.i343 = add nuw nsw i32 %mul.i342, 128
-  %shr.i344 = lshr i32 %add.i343, 8
-  %add2.i345 = add nuw nsw i32 %shr.i344, %add.i343
-  %shr3.i346 = lshr i32 %add2.i345, 8
-  %conv4.i347 = trunc nuw i32 %shr3.i346 to i8
-  store i8 %conv4.i347, ptr %arrayidx305, align 1
-  %add.ptr312 = getelementptr inbounds i8, ptr %out.2461, i64 %idx.ext471
-  %indvars.iv.next511 = add nuw nsw i64 %indvars.iv510, 1
+  %conv.i340.lver.orig = zext i8 %84 to i32
+  %mul.i342.lver.orig = mul nuw nsw i32 %conv.i340.lver.orig, %conv1.i325.lver.orig
+  %add.i343.lver.orig = add nuw nsw i32 %mul.i342.lver.orig, 128
+  %shr.i344.lver.orig = lshr i32 %add.i343.lver.orig, 8
+  %add2.i345.lver.orig = add nuw nsw i32 %shr.i344.lver.orig, %add.i343.lver.orig
+  %shr3.i346.lver.orig = lshr i32 %add2.i345.lver.orig, 8
+  %conv4.i347.lver.orig = trunc nuw i32 %shr3.i346.lver.orig to i8
+  store i8 %conv4.i347.lver.orig, ptr %arrayidx305.lver.orig, align 1
+  %add.ptr312.lver.orig = getelementptr inbounds i8, ptr %out.2461.lver.orig, i64 %idx.ext471
+  %indvars.iv.next511.lver.orig = add nuw nsw i64 %indvars.iv510.lver.orig, 1
   %85 = load i32, ptr %75, align 8
   %86 = zext i32 %85 to i64
-  %cmp286 = icmp ult i64 %indvars.iv.next511, %86
-  br i1 %cmp286, label %for.body288, label %for.inc514, !llvm.loop !153
+  %cmp286.lver.orig = icmp ult i64 %indvars.iv.next511.lver.orig, %86
+  br i1 %cmp286.lver.orig, label %for.body288.lver.orig, label %for.inc514, !llvm.loop !153
 
 for.body330:                                      ; preds = %for.cond325.preheader, %for.body330
   %indvars.iv519 = phi i64 [ %indvars.iv.next520, %for.body330 ], [ 0, %for.cond325.preheader ]
@@ -18465,7 +18465,7 @@ for.inc514.sink.split:                            ; preds = %if.then238, %if.the
   tail call void %137(ptr noundef nonnull %add.ptr, ptr noundef %48, ptr noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef %cond11) #38
   br label %for.inc514
 
-for.inc514:                                       ; preds = %for.body458, %for.body414, %for.body501, %for.body487, %for.body378, %for.body355, %for.body288, %for.body248, %for.body209, %for.body330, %for.inc514.sink.split, %for.cond496.preheader, %for.cond482.preheader, %for.cond453.preheader, %for.cond409.preheader, %for.cond373.preheader, %for.cond350.preheader, %if.then277, %for.cond243.preheader, %for.cond204.preheader, %for.cond325.preheader
+for.inc514:                                       ; preds = %for.body458, %for.body414, %for.body501, %for.body487, %for.body378, %for.body355, %for.body288.lver.orig, %for.body248, %for.body209, %for.body330, %for.inc514.sink.split, %for.cond496.preheader, %for.cond482.preheader, %for.cond453.preheader, %for.cond409.preheader, %for.cond373.preheader, %for.cond350.preheader, %if.then277, %for.cond243.preheader, %for.cond204.preheader, %for.cond325.preheader
   %inc515 = add nuw i32 %j.0474, 1
   %141 = load ptr, ptr %z, align 8
   %img_y121 = getelementptr inbounds i8, ptr %141, i64 4
